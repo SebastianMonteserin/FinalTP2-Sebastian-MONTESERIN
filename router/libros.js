@@ -15,6 +15,7 @@ class Router {
         this.router.put('/devolver/:id', this.controlador.devolver)
         this.router.put('/noApto/:id', this.controlador.noApto)
         this.router.get('/obtenerLibros', this.controlador.obtenerLibros)
+        this.router.get('/obtenerLibro/:id', this.controlador.obtenerLibro)
         return this.router
     }
 }

@@ -44,7 +44,11 @@ class Servicio {
         const libro = await this.model.noApto(id)
         return libro;
     }
-
+    
+    obtenerLibro = async (id) => {
+        const libro = await this.model.obtenerLibro(id)
+        return libro;
+    }
 
     obtenerLibros = async () => {
         const libros = await this.model.obtenerLibros()

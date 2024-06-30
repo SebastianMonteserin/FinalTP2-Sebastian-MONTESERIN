@@ -6,7 +6,7 @@ import EstadoLibro from '../../entities/Estado.js';
 class ModelFile {
     constructor() {
         this.nombreArchivo = 'libros.json'
-    
+
     }
 
     leerArchivo = async nombre => {
@@ -51,11 +51,11 @@ class ModelFile {
 
         if (index !== -1) {
             const libroAnterior = libros[index];
-    
+
             if (libroAnterior.estado === EstadoLibro.NO_APTO || libroAnterior.estado === EstadoLibro.ALQUILADO) {
                 return { errorMsg: 'El libro no está apto para ser alquilado.' }
             } else {
-                libroAnterior.estado = 'alquilado';
+                libroAnterior.estado = EstadoLibro.ALQUILADO
                 await this.escribirArchivo(this.nombreArchivo, libros)
                 return libroAnterior;
             }
@@ -63,52 +63,61 @@ class ModelFile {
             return { errorMsg: 'El ID del libro no existe.' };
         }
     }
-    
-        
 
-        devolver = async id => {
-            const libros = await this.leerArchivo(this.nombreArchivo)
-            const index = libros.findIndex(libro => libro.codigo === id);
-            if (index != -1) {
-                const libroAnterior = libros[index]
-                const libroActualizado = libroAnterior.estado = 'disponible'
-                await this.escribirArchivo(this.nombreArchivo, libros)
-                return libroActualizado;
-            }
-            else {
-                return { errorMsg: 'El id no existe.' };
-            }
+    obtenerLibro = async (id) => {
+        const libros = await this.leerArchivo(this.nombreArchivo);
+        const index = libros.findIndex(libro => libro.codigo === id);
 
+        if (index !== -1) {
+            const libro = libros[index];
+            return libro
+        } else {
+            return { errorMsg: 'El ID del libro no existe.' };
         }
-
-        noApto = async id => {
-            const libros = await this.leerArchivo(this.nombreArchivo)
-            const index = libros.findIndex(libro => libro.codigo === id);
-            if (index != -1) {
-                const libro = libros[index]
-                libro.estado = 'no-apto'
-                await this.escribirArchivo(this.nombreArchivo, libros)
-                return libro;
-            }
-            else {
-                return { errorMsg: 'El id no existe.' };
-            }
-
-        }
-
-
-        obtenerLibros = async () => {
-            try {
-                const libros = await this.leerArchivo(this.nombreArchivo)
-                return libros
-            }
-
-            catch {
-                return id ? {} : []
-            }
-        }
-
 
     }
+
+    devolver = async id => {
+        const libros = await this.leerArchivo(this.nombreArchivo);
+        const index = libros.findIndex(libro => libro.codigo === id);
+        if (index !== -1) {
+            const libro = libros[index];
+            libro.estado = EstadoLibro.DISPONIBLE
+            await this.escribirArchivo(this.nombreArchivo, libros)
+            return libro
+        } else {
+            return { errorMsg: 'El ID del libro no existe.' };
+        }
+    }
+
+    noApto = async id => {
+        const libros = await this.leerArchivo(this.nombreArchivo)
+        const index = libros.findIndex(libro => libro.codigo === id);
+        if (index != -1) {
+            const libro = libros[index]
+            libro.estado = 'no-apto'
+            await this.escribirArchivo(this.nombreArchivo, libros)
+            return libro;
+        }
+        else {
+            return { errorMsg: 'El id no existe.' };
+        }
+
+    }
+
+
+    obtenerLibros = async () => {
+        try {
+            const libros = await this.leerArchivo(this.nombreArchivo)
+            return libros
+        }
+
+        catch {
+            return id ? {} : []
+        }
+    }
+
+
+}
 
 export default ModelFile

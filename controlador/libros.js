@@ -69,12 +69,31 @@ class Controlador {
                         const { id: codigo } = req.params;
                         const id = parseInt(codigo, 10);
                         const libro = await this.servicio.noApto(id)
-                        res.status(401).json(libro)
+                        if (libro.errorMsg) {
+                                return res.status(401).json(libro)
+                        }
+                        res.status(200).json(libro)
                 }
                 catch (error) {
                         res.status(500).json({ error: error.message })
                 }
 
+        }
+
+
+
+        obtenerLibro = async (req, res) => {
+                try {
+                        const { id: codigo } = req.params;
+                        const id = parseInt(codigo, 10);
+                        const libro = await this.servicio.obtenerLibro(id)
+                        if (libro.errorMsg) {
+                                return res.status(401).json(libro)
+                        }
+                        res.status(200).json(libro)
+                } catch (error) {
+                        res.status(500).json({ error: error.message })
+                }
         }
 
         obtenerLibros = async (req, res) => {
@@ -86,8 +105,6 @@ class Controlador {
                         res.status(500).json({ error: error.message })
                 }
         }
-
-
 
 }
 export default Controlador
