@@ -1,0 +1,20 @@
+[
+	{
+		"codigo": 1,
+		"titulo": "El Quijote",
+		"autor": "Cervantes",
+		"estado": "alquilado"
+	},
+	{
+		"codigo": 2,
+		"titulo": "El Aleph",
+		"autor": "Borges",
+		"estado": "no-apto"
+	},
+	{
+		"codigo": 3,
+		"titulo": "El almohadon de plumas",
+		"autor": "Quiroga",
+		"estado": "alquilado"
+	}
+]
