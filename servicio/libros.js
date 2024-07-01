@@ -35,6 +35,56 @@ class Servicio {
         return libro;
     }
 
+  /*
+    alquilar = async (id) => {
+        try {
+            // Llamar al servicio externo para verificar el premio
+            const premioResponse = await fetch('https://libros.deno.dev/premios');
+            const premioData = await premioResponse.json();
+    
+            if (premioData.premio) {
+                // Si el premio fue otorgado, dar de baja automáticamente el libro
+                const libroDadoDeBaja = await this.model.baja(id);
+                return { mensaje: '¡Felicidades! Ha ganado el sorteo.', libro: libroDadoDeBaja };
+            }
+    
+            // Si no se ganó el premio, proceder con el alquiler del libro
+            const libroAlquilado = await this.model.alquilar(id);
+            return libroAlquilado;
+    
+        } catch (error) {
+            console.error('Error al alquilar el libro:', error);
+            throw new Error('Error interno al verificar el premio.');
+        }
+    };
+    
+
+    alquilar = async (id) => {
+        try {
+            // Llamar al servicio externo para verificar el premio
+            const response = await axios.get('https://libros.deno.dev/premios');
+            const premioData = response.data;
+    
+            if (premioData.premio) {
+                // Si el premio fue otorgado, dar de baja automáticamente el libro
+                const libroDadoDeBaja = await this.model.baja(id);
+                return { mensaje: '¡Felicidades! Ha ganado el sorteo.', libro: libroDadoDeBaja };
+            }
+    
+            // Si no se ganó el premio, proceder con el alquiler del libro
+            const libroAlquilado = await this.model.alquilar(id);
+            return libroAlquilado;
+    
+        } catch (error) {
+            console.error('Error al alquilar el libro:', error);
+            throw new Error('Error interno al verificar el premio.');
+        }
+    };
+
+*/
+
+
+
     devolver = async (id) => {
         const libro = await this.model.devolver(id)
         return libro;
