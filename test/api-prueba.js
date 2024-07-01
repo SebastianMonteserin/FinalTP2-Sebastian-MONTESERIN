@@ -2,7 +2,7 @@ import axios from "axios"
 
 
 const pruebaServidorConAxios = async () => {
-    const url = 'http://localhost:8080/obtenerLibros'
+    const url = 'http://localhost:8080/listarDatos'
 
     try {
         const {data:body, status} = await axios(url)

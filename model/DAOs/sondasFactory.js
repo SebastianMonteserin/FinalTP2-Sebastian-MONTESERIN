@@ -1,5 +1,5 @@
-import ModelFile from "./librosFile.js"
-import ModelMem from "./librosMem.js"
+import ModelFile from "./sondasFile.js"
+import ModelMem from "./sondasMem.js"
 
 class ModelFactory {
     static get(tipo) {

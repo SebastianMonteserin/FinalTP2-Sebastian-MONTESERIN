@@ -1,5 +1,5 @@
 import express from 'express'
-import RouterLibros from './router/libros.js'
+import RouterSondas from './router/sondas.js'
 import 'dotenv/config'
 import config from './config.js'
 
@@ -11,7 +11,7 @@ app.use(express.urlencoded({extended: true}))
 app.use(express.static('public'))
 
 
-app.use('/', new RouterLibros().start())
+app.use('/', new RouterSondas().start())
 
 
 const PORT = config.PORT

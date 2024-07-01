@@ -1,0 +1,42 @@
+[
+	{
+		"id": 1,
+		"temperatura": 38,
+		"ingreso": "1/7/24, 19:44:43"
+	},
+	{
+		"id": 2,
+		"temperatura": 38,
+		"recepcion": "1/7/24, 19:45:29"
+	},
+	{
+		"id": 1,
+		"temperatura": 100,
+		"recepcion": "1/7/24, 19:45:44"
+	},
+	{
+		"id": 5,
+		"temperatura": 100,
+		"recepcion": "1/7/24, 19:46:06"
+	},
+	{
+		"id": 3,
+		"temperatura": 25,
+		"recepcion": "1/7/24, 20:06:04"
+	},
+	{
+		"id": 4,
+		"temperatura": 30,
+		"recepcion": "1/7/24, 20:18:31"
+	},
+	{
+		"id": 2,
+		"temperatura": 30,
+		"recepcion": "1/7/24, 20:19:20"
+	},
+	{
+		"id": 1,
+		"temperatura": 30,
+		"recepcion": "1/7/24, 20:22:25"
+	}
+]
