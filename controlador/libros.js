@@ -22,8 +22,9 @@ class Controlador {
 
         baja = async (req, res) => {
                 try {
-                        const libro = req.body
-                        const libroEliminado = await this.servicio.baja(libro)
+                        const { id: codigo } = req.params;
+                        const id = parseInt(codigo, 10);
+                        const libroEliminado = await this.servicio.baja(id)
                         res.status(200).json(libroEliminado)
                 }
                 catch (error) {

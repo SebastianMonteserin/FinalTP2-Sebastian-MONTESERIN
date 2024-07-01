@@ -30,17 +30,18 @@ class ModelFile {
         return libro
     }
 
-    baja = async libro => {
+    baja = async id => {
         const libros = await this.leerArchivo(this.nombreArchivo)
-        const index = libros.findIndex(l => l.codigo === libro.codigo);
+        const index = libros.findIndex(l => l.codigo === id);
 
         if (index === -1) {
             return { message: 'El libro no existe.' };
 
         } else {
+            const libroEliminado = libros[index]
             libros.splice(index, 1);
             await this.escribirArchivo(this.nombreArchivo, libros);
-            return libro;
+            return libroEliminado;
 
         }
     }

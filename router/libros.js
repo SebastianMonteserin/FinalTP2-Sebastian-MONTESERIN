@@ -10,7 +10,7 @@ class Router {
 
     start() {
         this.router.post('/alta', this.controlador.alta)
-        this.router.delete('/baja', this.controlador.baja)
+        this.router.delete('/baja/:id', this.controlador.baja)
         this.router.put('/alquilar/:id', this.controlador.alquilar)
         this.router.put('/devolver/:id', this.controlador.devolver)
         this.router.put('/noApto/:id', this.controlador.noApto)
