@@ -5,7 +5,6 @@ import axios from 'axios';
 
 class Servicio {
     constructor() {
-        //  this.model = new ModelMem()
         this.model = new Factory('FILE')
 
     }

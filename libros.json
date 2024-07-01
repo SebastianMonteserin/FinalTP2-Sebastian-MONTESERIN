@@ -16,5 +16,11 @@
 		"titulo": "El almohadon de plumas",
 		"autor": "Quiroga",
 		"estado": "no-apto"
+	},
+	{
+		"codigo": 4,
+		"titulo": "Todos los fuegos el fuego",
+		"autor": "Bioy Casares",
+		"estado": "disponible"
 	}
 ]
