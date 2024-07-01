@@ -1,11 +1,11 @@
-import Factory from '../model/DAOs/librosFile.js'
+import ModelFactory from '../model/DAOs/librosFactory.js'
 import EstadoLibro from '../entities/Estado.js'
 import { validar } from "./validaciones/libros.js"
 import axios from 'axios';
 
 class Servicio {
     constructor() {
-        this.model = new Factory('FILE')
+        this.model = ModelFactory.get('FILE')
 
     }
 
